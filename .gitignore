@@ -1,0 +1,13 @@
+/xmlstorage-domain/target/
+/xmlstorage-infrastructure/target/
+/xmlstorage-application/target/
+/xmlstorage-gateway/target/
+/xmlstorage-api/target/
+/xmlstorage-api/src/main/java/br/com/codein/seed/Seed.java
+/xmlstorage-presentation/target/
+/.idea/
+/atlassian-ide-plugin.xml
+/xmlstorage.iml
+/**/src/main/resources/rebel.xml
+*.iml
+/xmlstorage-application/br.com.codein.xmlstorage.domain.model.*/
