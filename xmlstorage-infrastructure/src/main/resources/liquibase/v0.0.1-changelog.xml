@@ -1,0 +1,332 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="gumga (generated)" id="1468343915020-1" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createSequence sequenceName="hibernate_sequence"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-2" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createSequence sequenceName="seq_docfiscais"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-3" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createSequence sequenceName="seq_gumga_custom_field"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-4" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createSequence sequenceName="seq_gumga_field_value"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-5" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createSequence sequenceName="seq_gumga_message"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-6" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createSequence sequenceName="seq_gumga_tag"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-7" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createSequence sequenceName="seq_gumga_tag_def"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-8" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createSequence sequenceName="seq_gumga_tag_val"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-9" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createSequence sequenceName="seq_gumga_tag_val_def"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-10" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createSequence sequenceName="seq_gumga_user_data"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-11" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createSequence sequenceName="seq_log"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-12" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createSequence sequenceName="seq_xmldocfiscais"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-13" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="docfiscais">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="oi" type="VARCHAR(255)"/>
+            <column name="chave" type="VARCHAR(255)"/>
+            <column name="data" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="protocolo" type="VARCHAR(255)"/>
+            <column name="tipoevento" type="VARCHAR(255)"/>
+            <column name="version" type="INT"/>
+            <column name="xml_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-14" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="docfiscais_aud">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="chave" type="VARCHAR(255)"/>
+            <column name="data" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="protocolo" type="VARCHAR(255)"/>
+            <column name="tipoevento" type="VARCHAR(255)"/>
+            <column name="xml_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-15" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="gumga_custom_field">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="oi" type="VARCHAR(255)"/>
+            <column name="active" type="BOOL"/>
+            <column name="clazz" type="VARCHAR(255)"/>
+            <column name="defaultvaluescript" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="fieldgroup" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="optionlabelfield" type="VARCHAR(255)"/>
+            <column name="optionvaluefield" type="VARCHAR(255)"/>
+            <column name="options" type="VARCHAR(255)"/>
+            <column name="optionscollection" type="VARCHAR(255)"/>
+            <column name="translatekey" type="VARCHAR(255)"/>
+            <column name="type" type="VARCHAR(255)"/>
+            <column name="validationdescription" type="VARCHAR(255)"/>
+            <column name="validationscript" type="VARCHAR(255)"/>
+            <column name="visualizationorder" type="FLOAT8"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-16" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="gumga_field_value">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="oi" type="VARCHAR(255)"/>
+            <column name="datevalue" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="gumgamodelid" type="BIGINT"/>
+            <column name="logicvalue" type="BOOL"/>
+            <column name="numbervalue" type="numeric(19, 2)"/>
+            <column name="textvalue" type="VARCHAR(255)"/>
+            <column name="field_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-17" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="gumga_log">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="oi" type="VARCHAR(255)"/>
+            <column name="was_allowed" type="BOOL"/>
+            <column name="endpoint" type="VARCHAR(255)"/>
+            <column name="ip" type="VARCHAR(255)"/>
+            <column name="gumga_login" type="VARCHAR(255)"/>
+            <column name="method" type="VARCHAR(255)"/>
+            <column name="operarationkey" type="VARCHAR(255)"/>
+            <column name="organization" type="VARCHAR(255)"/>
+            <column name="organizationcode" type="VARCHAR(255)"/>
+            <column name="quando" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="software" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-18" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="gumga_message">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="oi" type="VARCHAR(255)"/>
+            <column name="destinationlogin" type="VARCHAR(255)"/>
+            <column name="message" type="VARCHAR(255)"/>
+            <column name="senderlogin" type="VARCHAR(255)"/>
+            <column name="viewedin" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="visibleon" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-19" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="gumga_tag">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="oi" type="VARCHAR(255)"/>
+            <column name="objectid" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="objecttype" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="INT"/>
+            <column name="definition_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-20" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="gumga_tag_def">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="oi" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-21" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="gumga_tag_def_gumga_tag_vdef">
+            <column name="gumga_tag_def_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="attributes_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-22" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="gumga_tag_gumga_tag_val">
+            <column name="gumga_tag_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="values_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-23" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="gumga_tag_val">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="oi" type="VARCHAR(255)"/>
+            <column name="value" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="INT"/>
+            <column name="definition_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-24" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="gumga_tag_vdef">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="oi" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-25" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="gumga_user_data">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="oi" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="data_key" type="VARCHAR(255)"/>
+            <column name="userlogin" type="VARCHAR(255)"/>
+            <column name="data_value" type="VARCHAR(4096)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-26" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="gumgarevisionentity">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ip" type="VARCHAR(255)"/>
+            <column name="moment" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="userlogin" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-27" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="xmldocfiscais">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="oi" type="VARCHAR(255)"/>
+            <column name="version" type="INT"/>
+            <column name="xml" type="${xml}"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-28" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="xmldocfiscais_aud">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="xml" type="${xml}"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-29" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id, rev" constraintName="docfiscais_aud_pkey" tableName="docfiscais_aud"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-30" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="docfiscais_pkey" tableName="docfiscais"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-31" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="gumga_custom_field_pkey" tableName="gumga_custom_field"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-32" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="gumga_field_value_pkey" tableName="gumga_field_value"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-33" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="gumga_log_pkey" tableName="gumga_log"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-34" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="gumga_message_pkey" tableName="gumga_message"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-35" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="gumga_tag_def_pkey" tableName="gumga_tag_def"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-36" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="gumga_tag_pkey" tableName="gumga_tag"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-37" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="gumga_tag_val_pkey" tableName="gumga_tag_val"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-38" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="gumga_tag_vdef_pkey" tableName="gumga_tag_vdef"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-39" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="gumga_user_data_pkey" tableName="gumga_user_data"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-40" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="gumgarevisionentity_pkey" tableName="gumgarevisionentity"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-41" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id, rev" constraintName="xmldocfiscais_aud_pkey" tableName="xmldocfiscais_aud"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-42" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="xmldocfiscais_pkey" tableName="xmldocfiscais"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-43" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addUniqueConstraint columnNames="attributes_id" constraintName="uk_3inr0arx7tvpask2lxgu3lo7f" tableName="gumga_tag_def_gumga_tag_vdef"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-44" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addUniqueConstraint columnNames="values_id" constraintName="uk_eyiy022bs09og1v5x1x91c0n1" tableName="gumga_tag_gumga_tag_val"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-45" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="attributes_id" baseTableName="gumga_tag_def_gumga_tag_vdef" constraintName="fk_3inr0arx7tvpask2lxgu3lo7f" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="gumga_tag_vdef"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-46" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="gumga_tag_def_id" baseTableName="gumga_tag_def_gumga_tag_vdef" constraintName="fk_8edbw827ali0fs75ephdx2nd4" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="gumga_tag_def"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-47" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="definition_id" baseTableName="gumga_tag_val" constraintName="fk_d4jbeat1ougv8kfal4f41lpo1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="gumga_tag_vdef"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-48" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="xml_id" baseTableName="docfiscais" constraintName="fk_eh5ldlo3thqv3n3llygq5vg5t" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="xmldocfiscais"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-49" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="definition_id" baseTableName="gumga_tag" constraintName="fk_evj2nfrftl0neq7p8d0bom047" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="gumga_tag_def"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-50" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="values_id" baseTableName="gumga_tag_gumga_tag_val" constraintName="fk_eyiy022bs09og1v5x1x91c0n1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="gumga_tag_val"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-51" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="gumga_tag_id" baseTableName="gumga_tag_gumga_tag_val" constraintName="fk_lm7o1m6ayl7uqumeb13r77bb1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="gumga_tag"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-52" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="field_id" baseTableName="gumga_field_value" constraintName="fk_nkvnt8mvv29u2h1cpd80i77au" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="gumga_custom_field"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-53" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="xmldocfiscais_aud" constraintName="fk_tl927in8mio4cq56q3op4bess" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="gumgarevisionentity"/>
+    </changeSet>
+    <changeSet author="gumga (generated)" id="1468343915020-54" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="docfiscais_aud" constraintName="fk_tp3fyd74vf08gsucnilfacc9r" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="gumgarevisionentity"/>
+    </changeSet>
+</databaseChangeLog>
