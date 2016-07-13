@@ -12,10 +12,11 @@ public class GumgaRegexApiOperationTranslator implements ApiOperationTranslator 
             new OperationExpression("ALL_OPERATIONS", ".*", ".*")
     );
 
+    @Override
     public String getOperation(String url, String method) {
         for (OperationExpression oe : operations) {
-            if (url.matches(oe.url) && method.matches(oe.method)) {
-                return oe.operation;
+            if (url.matches(oe.getUrl()) && method.matches(oe.getMethod())) {
+                return oe.getOperation();
             }
         }
         return "NOOP";
@@ -24,7 +25,7 @@ public class GumgaRegexApiOperationTranslator implements ApiOperationTranslator 
 
     class OperationExpression {
 
-        public String url, method, operation;
+        private String url, method, operation;
 
         public OperationExpression(String operation, String url, String method) {
             this.url = url;
@@ -32,6 +33,29 @@ public class GumgaRegexApiOperationTranslator implements ApiOperationTranslator 
             this.operation = operation;
         }
 
+        public String getUrl() {
+            return url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
+        }
+
+        public String getMethod() {
+            return method;
+        }
+
+        public void setMethod(String method) {
+            this.method = method;
+        }
+
+        public String getOperation() {
+            return operation;
+        }
+
+        public void setOperation(String operation) {
+            this.operation = operation;
+        }
     }
 
 }

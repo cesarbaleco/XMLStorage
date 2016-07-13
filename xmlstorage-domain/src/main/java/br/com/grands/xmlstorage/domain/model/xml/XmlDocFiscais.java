@@ -24,7 +24,7 @@ public class XmlDocFiscais extends GumgaModel<Long> {
     @ApiModelProperty(hidden = true)
     private Integer version;
     @ApiModelProperty(value = "Salva o texto do xml", position = 1)
-    private SQLXMLType xml;
+    private String xml;
 
     public Integer getVersion() {
         return version;
@@ -34,11 +34,21 @@ public class XmlDocFiscais extends GumgaModel<Long> {
         this.version = version;
     }
 
-    public SQLXMLType getXml() {
+    public String getXml() {
         return xml;
     }
 
-    public void setXml(SQLXMLType xml) {
+    public void setXml(String xml) {
         this.xml = xml;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }

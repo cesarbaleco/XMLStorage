@@ -8,7 +8,6 @@ import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
-import br.com.grands.xmlstorage.domain.model.xml.SQLXMLType;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -52,7 +51,6 @@ public class WebConfig extends WebMvcConfigurerAdapter implements WebApplication
         mapper.registerModule(new JodaModule());
         mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
         mapper.setDateFormat(new ISO8601DateFormat());
-        mapper.writerWithType(SQLXMLType.class);
         mapper.setVisibility(PropertyAccessor.ALL, Visibility.NONE);
         mapper.setVisibility(PropertyAccessor.FIELD, Visibility.ANY);
 
@@ -94,8 +92,9 @@ public class WebConfig extends WebMvcConfigurerAdapter implements WebApplication
 
     @Bean
     public static CommonsMultipartResolver multipartResolver() {
+        long maxSize = 1024;
         CommonsMultipartResolver resolver = new CommonsMultipartResolver();
-        resolver.setMaxUploadSize(1024 * 1024 * 1024);
+        resolver.setMaxUploadSize(maxSize * maxSize * maxSize);
         return resolver;
     }
 

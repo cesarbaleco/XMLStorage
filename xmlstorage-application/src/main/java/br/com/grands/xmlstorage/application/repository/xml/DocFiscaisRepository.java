@@ -7,4 +7,6 @@ import gumga.framework.domain.repository.GumgaCrudRepository;
  * Created by gelatti on 12/07/16.
  */
 public interface DocFiscaisRepository extends GumgaCrudRepository<DocFiscais, Long> {
+
+    DocFiscais getByChave(String chave);
 }
