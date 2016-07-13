@@ -3,13 +3,11 @@ package br.com.grands.xmlstorage.domain.model.xml;
 import gumga.framework.domain.GumgaModel;
 import gumga.framework.domain.GumgaMultitenancy;
 import io.swagger.annotations.ApiModelProperty;
-import org.hibernate.annotations.Type;
 import org.hibernate.envers.Audited;
 import org.hibernate.search.annotations.Indexed;
 
 import javax.persistence.Entity;
 import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 import javax.persistence.Version;
 
 /**
@@ -25,7 +23,7 @@ public class XmlDocFiscais extends GumgaModel<Long> {
     @Version
     @ApiModelProperty(hidden = true)
     private Integer version;
-    @ApiModelProperty(value = "Salva o texto do xml", position = 2)
+    @ApiModelProperty(value = "Salva o texto do xml", position = 1)
     private String xml;
 
     public Integer getVersion() {
@@ -42,5 +40,15 @@ public class XmlDocFiscais extends GumgaModel<Long> {
 
     public void setXml(String xml) {
         this.xml = xml;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }

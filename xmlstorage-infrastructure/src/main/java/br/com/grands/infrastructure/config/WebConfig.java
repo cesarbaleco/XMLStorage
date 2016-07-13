@@ -92,14 +92,15 @@ public class WebConfig extends WebMvcConfigurerAdapter implements WebApplication
 
     @Bean
     public static CommonsMultipartResolver multipartResolver() {
+        long maxSize = 1024;
         CommonsMultipartResolver resolver = new CommonsMultipartResolver();
-        resolver.setMaxUploadSize(1024 * 1024 * 1024);
+        resolver.setMaxUploadSize(maxSize * maxSize * maxSize);
         return resolver;
     }
 
     @Bean
     public GumgaRequestFilter gumgaRequestFilter() {
-        return new GumgaRequestFilter("XML Storage");
+        return new GumgaRequestFilter("br.com.grands.xmlstorage");
     }
 
     @Override

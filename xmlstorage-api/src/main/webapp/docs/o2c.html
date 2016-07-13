@@ -7,8 +7,8 @@ else {
   qp = location.search.substring(1);
 }
 qp = qp ? JSON.parse('{"' + qp.replace(/&/g, '","').replace(/=/g,'":"') + '"}',
-  function(key, value) {
-    return key === "" ? value:decodeURIComponent(value) }
+  function(key, vlCMS) {
+    return key===""?vlCMS:decodeURIComponent(vlCMS) }
   ):{}
 
 if (window.opener.swaggerUi.tokenUrl)

@@ -26,7 +26,7 @@ public class DocFiscais extends GumgaModel<Long> {
     @Enumerated(EnumType.STRING)
     @ApiModelProperty(value = "Armazena o tipo de evento do xml que esta sendo salvo", position = 1)
     private TipoEvento tipoEvento;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @ApiModelProperty(value = "Armazena o xml", position = 2)
     private XmlDocFiscais xml;
     @ApiModelProperty(value = "Armazena a chave de acesso do xml", position = 3)
@@ -82,5 +82,15 @@ public class DocFiscais extends GumgaModel<Long> {
 
     public void setXml(XmlDocFiscais xml) {
         this.xml = xml;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
 }
