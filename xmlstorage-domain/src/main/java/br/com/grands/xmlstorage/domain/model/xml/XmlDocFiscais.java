@@ -3,6 +3,7 @@ package br.com.grands.xmlstorage.domain.model.xml;
 import gumga.framework.domain.GumgaModel;
 import gumga.framework.domain.GumgaMultitenancy;
 import io.swagger.annotations.ApiModelProperty;
+import org.hibernate.annotations.Type;
 import org.hibernate.envers.Audited;
 import org.hibernate.search.annotations.Indexed;
 
@@ -23,6 +24,7 @@ public class XmlDocFiscais extends GumgaModel<Long> {
     @Version
     @ApiModelProperty(hidden = true)
     private Integer version;
+    @Type(type = "br.com.grands.xmlstorage.domain.model.util.HibernateXMLType")
     @ApiModelProperty(value = "Salva o texto do xml", position = 1)
     private String xml;
 

@@ -25,7 +25,9 @@ public class DocFiscaisService extends GumgaService<DocFiscais, Long> {
     @Transactional
     public DocFiscais getByChave(String chave) {
         DocFiscais docFiscais = docFiscaisRepository.getByChave(chave);
-        Hibernate.initialize(docFiscais.getXml());
+        if (docFiscais != null) {
+            Hibernate.initialize(docFiscais.getXml());
+        }
         return docFiscais;
     }
 }

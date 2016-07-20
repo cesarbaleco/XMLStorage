@@ -236,7 +236,7 @@
             </column>
             <column name="oi" type="VARCHAR(255)"/>
             <column name="version" type="INT"/>
-            <column name="xml" type="TEXT"/>
+            <column name="xml" type="xml"/>
         </createTable>
     </changeSet>
     <changeSet author="gumga (generated)" id="1468343915020-28" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
@@ -248,7 +248,7 @@
                 <constraints nullable="false"/>
             </column>
             <column name="revtype" type="SMALLINT"/>
-            <column name="xml" type="TEXT"/>
+            <column name="xml" type="xml"/>
         </createTable>
     </changeSet>
     <changeSet author="gumga (generated)" id="1468343915020-29" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
