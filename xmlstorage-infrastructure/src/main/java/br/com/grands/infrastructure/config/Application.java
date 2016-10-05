@@ -5,6 +5,7 @@ import gumga.framework.application.GumgaRepositoryFactoryBean;
 import java.util.Properties;
 
 import gumga.framework.application.spring.config.DatabaseConfigSupport;
+import gumga.framework.core.GumgaValues;
 import gumga.framework.domain.GumgaQueryParserProvider;
 
 import javax.persistence.EntityManagerFactory;
@@ -32,6 +33,22 @@ import com.zaxxer.hikari.HikariDataSource;
 @EnableTransactionManagement(proxyTargetClass = true)
 public class Application {
 
+
+    @Autowired
+    private static GumgaValues gumgaValues;
+
+    private static Properties properties;
+
+    private static Properties getProperties() {
+        if(gumgaValues == null)
+            gumgaValues = new ApplicationConstants();
+
+        if(properties == null)
+            properties = gumgaValues.getCustomFileProperties();
+
+        return properties;
+    }
+
     @Bean
     public static PropertyPlaceholderConfigurer dataConfigPropertyConfigurer() {
         PropertyPlaceholderConfigurer configurer = new PropertyPlaceholderConfigurer();
@@ -41,8 +58,16 @@ public class Application {
 
     @Bean
     public static DataSource dataSource() {
+        StringBuilder databaseURL = new StringBuilder();
+        databaseURL.append("jdbc:postgresql://");
+        databaseURL.append(getProperties().getProperty("database.url"));
+        databaseURL.append("/").append(getProperties().getProperty("database.name"));
+        databaseURL.append("?currentSchema=").append(getProperties().getProperty("schema.name"));
+
         return new DatabaseConfigSupport().getDataSourceProvider(DatabaseConfigSupport.Database.POSTGRES).
-                createDataSource("jdbc:postgresql://localhost:5432/grands?currentSchema=xmlstorage", "xmlstorage", "facadeca10");
+                createDataSource(databaseURL.toString(),
+                        getProperties().getProperty("database.user"),
+                        getProperties().getProperty("database.password"));
     }
 
     @Bean
