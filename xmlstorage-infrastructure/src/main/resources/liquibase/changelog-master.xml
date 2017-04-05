@@ -21,5 +21,6 @@
     <property name="xml" value="java.sql.Types.SQLXML"  />
     <include file="v0.0.1-changelog.xml" relativeToChangelogFile="true"/>
     <include file="v1.1.0-SNAPSHOT-changelog.xml" relativeToChangelogFile="true"/>
+    <include file="v1.2.0-SNAPSHOT-changelog.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

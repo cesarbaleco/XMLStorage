@@ -1,0 +1,211 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Bruno Gelatti" id="XS-1" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <preConditions onFail="MARK_RAN">
+            <and>
+                <not>
+                    <tableExists tableName="gumga_glog"/>
+                </not>
+                <tableExists tableName="gumga_log"/>
+            </and>
+        </preConditions>
+        <renameTable oldTableName="gumga_log" newTableName="gumga_glog"/>
+    </changeSet>
+    <changeSet author="Bruno Gelatti" id="XS-2" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <preConditions onFail="MARK_RAN">
+            <and>
+                <not>
+                    <tableExists tableName="gumga_msg"/>
+                </not>
+                <tableExists tableName="gumga_message"/>
+            </and>
+
+        </preConditions>
+        <renameTable oldTableName="gumga_message" newTableName="gumga_msg"/>
+    </changeSet>
+
+    <changeSet author="Bruno Gelatti" id="XS-3" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <preConditions onFail="MARK_RAN">
+            <and>
+                <not>
+                    <tableExists tableName="guser_gdata"/>
+                </not>
+                <tableExists tableName="gumga_user_data"/>
+            </and>
+
+        </preConditions>
+        <renameTable oldTableName="gumga_user_data" newTableName="guser_gdata"/>
+    </changeSet>
+
+    <changeSet author="Bruno Gelatti" id="XS-4" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <preConditions onFail="MARK_RAN">
+            <and>
+                <not>
+                    <tableExists tableName="gumga_ctm_fld"/>
+                </not>
+                <tableExists tableName="gumga_custom_field"/>
+            </and>
+
+        </preConditions>
+        <renameTable oldTableName="gumga_custom_field" newTableName="gumga_ctm_fld"/>
+    </changeSet>
+
+    <changeSet author="Bruno Gelatti" id="XS-5" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <preConditions onFail="MARK_RAN">
+            <and>
+                <not>
+                    <tableExists tableName="gumga_fld_vle"/>
+                </not>
+                <tableExists tableName="gumga_field_value"/>
+            </and>
+
+        </preConditions>
+        <renameTable oldTableName="gumga_field_value" newTableName="gumga_fld_vle"/>
+    </changeSet>
+
+    <changeSet author="Bruno Gelatti" id="XS-6" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <preConditions onFail="MARK_RAN">
+            <and>
+                <not>
+                    <tableExists tableName="gumga_gtag"/>
+                </not>
+                <tableExists tableName="gumga_tag"/>
+            </and>
+
+        </preConditions>
+        <renameTable oldTableName="gumga_tag" newTableName="gumga_gtag"/>
+    </changeSet>
+
+    <changeSet author="Bruno Gelatti" id="XS-7" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <preConditions onFail="MARK_RAN">
+            <and>
+                <not>
+                    <tableExists tableName="gumga_gtag_defi"/>
+                </not>
+                <tableExists tableName="gumga_tag_def"/>
+            </and>
+
+        </preConditions>
+        <renameTable oldTableName="gumga_tag_def" newTableName="gumga_gtag_defi"/>
+    </changeSet>
+
+    <changeSet author="Bruno Gelatti" id="XS-8" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <preConditions onFail="MARK_RAN">
+            <and>
+                <not>
+                    <tableExists tableName="gumga_gtag_valu"/>
+                </not>
+                <tableExists tableName="gumga_tag_val"/>
+            </and>
+
+        </preConditions>
+        <renameTable oldTableName="gumga_tag_val" newTableName="gumga_gtag_valu"/>
+    </changeSet>
+
+    <changeSet author="Bruno Gelatti" id="XS-9" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <preConditions onFail="MARK_RAN">
+            <and>
+                <not>
+                    <tableExists tableName="gtag_vdefi"/>
+                </not>
+                <tableExists tableName="gumga_tag_vdef"/>
+            </and>
+
+        </preConditions>
+        <renameTable oldTableName="gumga_tag_vdef" newTableName="gtag_vdefi"/>
+    </changeSet>
+
+    <changeSet author="Bruno Gelatti" id="XS-10" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <preConditions onFail="MARK_RAN">
+            <and>
+                <not>
+                    <sequenceExists sequenceName="seq_gumga_glog"/>
+                </not>
+                <sequenceExists sequenceName="seq_log"/>
+            </and>
+        </preConditions>
+        <renameSequence oldSequenceName="seq_log" newSequenceName="seq_gumga_glog"/>
+    </changeSet>
+
+    <changeSet author="Bruno Gelatti" id="XS-11" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <preConditions onFail="MARK_RAN">
+            <and>
+                <not>
+                    <sequenceExists sequenceName="seq_gumga_msg"/>
+                </not>
+                <sequenceExists sequenceName="seq_gumga_message"/>
+            </and>
+        </preConditions>
+        <renameSequence oldSequenceName="seq_gumga_message" newSequenceName="seq_gumga_msg"/>
+    </changeSet>
+
+
+    <changeSet author="Bruno Gelatti" id="XS-12" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <preConditions onFail="MARK_RAN">
+            <and>
+                <sequenceExists sequenceName="seq_gumga_custom_field"/>
+                <not>
+                    <sequenceExists sequenceName="seq_gumga_ctm_fld"/>
+                </not>
+            </and>
+        </preConditions>
+        <renameSequence oldSequenceName="seq_gumga_custom_field" newSequenceName="seq_gumga_ctm_fld"/>
+    </changeSet>
+
+    <changeSet author="Bruno Gelatti" id="XS-13" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <preConditions onFail="MARK_RAN">
+            <and>
+                <sequenceExists sequenceName="seq_gumga_field_value"/>
+                <not>
+                    <sequenceExists sequenceName="seq_gumga_fld_vle"/>
+                </not>
+            </and>
+        </preConditions>
+        <renameSequence oldSequenceName="seq_gumga_field_value" newSequenceName="seq_gumga_fld_vle"/>
+    </changeSet>
+    <changeSet author="Bruno Gelatti" id="XS-14" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <preConditions onFail="MARK_RAN">
+            <and>
+                <sequenceExists sequenceName="seq_gumga_tag"/>
+                <not>
+                    <sequenceExists sequenceName="seq_gumga_gtag"/>
+                </not>
+            </and>
+        </preConditions>
+        <renameSequence oldSequenceName="seq_gumga_tag" newSequenceName="seq_gumga_gtag"/>
+    </changeSet>
+
+    <changeSet author="Bruno Gelatti" id="XS-15" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <preConditions onFail="MARK_RAN">
+            <and>
+                <sequenceExists sequenceName="seq_gumga_tag_def"/>
+                <not>
+                    <sequenceExists sequenceName="seq_gumga_gtag_defi"/>
+                </not>
+            </and>
+        </preConditions>
+        <renameSequence oldSequenceName="seq_gumga_tag_def" newSequenceName="seq_gumga_gtag_defi"/>
+    </changeSet>
+    <changeSet author="Bruno Gelatti" id="XS-16" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <preConditions onFail="MARK_RAN">
+            <and>
+                <sequenceExists sequenceName="seq_gumga_tag_val"/>
+                <not>
+                    <sequenceExists sequenceName="seq_gumga_gtag_valu"/>
+                </not>
+            </and>
+        </preConditions>
+        <renameSequence oldSequenceName="seq_gumga_tag_val" newSequenceName="seq_gumga_gtag_valu"/>
+    </changeSet>
+    <changeSet author="Bruno Gelatti" id="XS-17" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <preConditions onFail="MARK_RAN">
+            <and>
+                <sequenceExists sequenceName="seq_gumga_tag_val_def"/>
+                <not>
+                    <sequenceExists sequenceName="seq_gtag_valu_defi"/>
+                </not>
+            </and>
+        </preConditions>
+        <renameSequence oldSequenceName="seq_gumga_tag_val_def" newSequenceName="seq_gtag_valu_defi"/>
+    </changeSet>
+</databaseChangeLog>
