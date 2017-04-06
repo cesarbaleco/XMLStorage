@@ -18,6 +18,7 @@ import java.util.Date;
 @Indexed
 @Audited
 @Entity
+@Table(uniqueConstraints = @UniqueConstraint(columnNames={"oi", "chave"}))
 public class DocFiscais extends GumgaModel<Long> {
 
     @Version

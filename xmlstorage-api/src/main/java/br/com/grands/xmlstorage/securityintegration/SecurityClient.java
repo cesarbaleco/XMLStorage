@@ -1,6 +1,9 @@
 package br.com.grands.xmlstorage.securityintegration;
 
+import br.com.grands.infrastructure.config.ApplicationConstants;
 import gumga.framework.core.GumgaThreadScope;
+import gumga.framework.core.GumgaValues;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -8,15 +11,32 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Properties;
+
 @Component
 public class SecurityClient {
+
+    @Autowired
+    private  GumgaValues gumgaValues;
+
+    private  Properties properties;
+
+    private  Properties getProperties() {
+        if(gumgaValues == null)
+            gumgaValues = new ApplicationConstants();
+
+        if(properties == null)
+            properties = gumgaValues.getCustomFileProperties();
+
+        return properties;
+    }
 
     public ResponseEntity<Object> getOrganization(String id, String name) {
         String nameVar = name;
         if (nameVar == null) {
             nameVar = new String();
         }
-        String url = "http://192.168.25.250/security-api/api/organization?aq={aq}";
+        String url = getProperties().getProperty("security.url").concat("/security-api/api/organization?aq={aq}");
 
         String aq = "obj.name like '%" + nameVar + "%' and obj.hierarchyCode like '" + id + "%'";
 

@@ -8,12 +8,17 @@ public class ApplicationConstants implements GumgaValues {
 
     @Override
     public String getGumgaSecurityUrl() {
-        return "http://192.168.25.250/security-api/publicoperations";
+        return this.getCustomFileProperties().get("security.url") +"/security-api/publicoperations";
     }
 
     @Override
     public boolean isLogActive() {
         return true;
+    }
+
+    @Override
+    public String getCustomPropertiesFileName() {
+        return "xmlstorage.properties";
     }
 
 }

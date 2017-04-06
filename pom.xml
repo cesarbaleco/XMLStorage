@@ -8,7 +8,7 @@
     <packaging>pom</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <gumga.framework.version>1.2.9-SNAPSHOT</gumga.framework.version>
+        <gumga.framework.version>1.2.12-SNAPSHOT</gumga.framework.version>
         <spring.security.version>3.2.3.RELEASE</spring.security.version>
         <spring.version>4.2.6.RELEASE</spring.version>
         <hibernate.version>4.3.1.Final</hibernate.version>
@@ -262,7 +262,30 @@
                         <encoding>${project.build.sourceEncoding}</encoding>
                     </configuration>
                 </plugin>
-            </plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.12.4</version>
+                    <configuration>
+                        <skipTests>true</skipTests>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.zeroturnaround</groupId>
+                    <artifactId>jrebel-maven-plugin</artifactId>
+                    <version>1.1.5</version>
+                    <executions>
+                        <execution>
+                            <id>generate-rebel-xml</id>
+                            <!--<phase>process-resources</phase>-->
+                            <phase>install</phase>
+                            <goals>
+                                <goal>generate</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>          
         </pluginManagement>
     </build>
   <modules>

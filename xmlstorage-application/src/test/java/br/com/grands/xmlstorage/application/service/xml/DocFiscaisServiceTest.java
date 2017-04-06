@@ -8,6 +8,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 
@@ -26,6 +27,7 @@ public class DocFiscaisServiceTest extends AbstractTest {
     private XmlDocFiscais xmlDocFiscais;
 
     @Before
+    @Transactional
     public void setUp() {
         docFiscais = new DocFiscais();
         docFiscais.setChave("41160707219056000180651500000000011300200818");
@@ -33,17 +35,19 @@ public class DocFiscaisServiceTest extends AbstractTest {
         docFiscais.setProtocolo("Protocolo Teste");
         docFiscais.setTipoEvento(TipoEvento.AUTORIZACAO);
         xmlDocFiscais = new XmlDocFiscais();
-        xmlDocFiscais.setXml("<teste>dfsdfsdfsdfsdfds</teste>");
+        xmlDocFiscais.setXml("<teste>teste</teste>");
         docFiscais.setXml(xmlDocFiscais);
     }
 
     @Test
+    @Transactional
     public void testSave() {
         assertNotNull(docFiscaisService.save(docFiscais));
     }
 
     @Test
-    public void getByChave() {
+    @Transactional
+    public void testGetByChave() {
         assertNotNull(docFiscaisService.save(docFiscais));
         DocFiscais fiscais = docFiscaisService.getByChave(docFiscais.getChave());
         assertNotNull(fiscais);
@@ -51,6 +55,7 @@ public class DocFiscaisServiceTest extends AbstractTest {
     }
 
     @After
+    @Transactional
     public void tearDown() {
         try {
             docFiscaisService.delete(docFiscais);

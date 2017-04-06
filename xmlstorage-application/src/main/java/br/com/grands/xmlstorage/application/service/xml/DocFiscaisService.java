@@ -1,6 +1,7 @@
 package br.com.grands.xmlstorage.application.service.xml;
 
 import br.com.grands.xmlstorage.application.repository.xml.DocFiscaisRepository;
+import br.com.grands.xmlstorage.domain.exception.DocFiscaisException;
 import br.com.grands.xmlstorage.domain.model.xml.DocFiscais;
 import gumga.framework.application.GumgaService;
 import org.hibernate.Hibernate;
@@ -29,5 +30,22 @@ public class DocFiscaisService extends GumgaService<DocFiscais, Long> {
             Hibernate.initialize(docFiscais.getXml());
         }
         return docFiscais;
+    }
+
+    @Override
+    public void beforeSave(DocFiscais entity) {
+        if (!validUniqueChave(entity)) {
+            throw new DocFiscaisException("This xml is already saved");
+        }
+        super.beforeSave(entity);
+    }
+
+    private Boolean validUniqueChave(DocFiscais entity) {
+        DocFiscais fiscais = docFiscaisRepository.getByChave(entity.getChave());
+        if (fiscais != null) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }
